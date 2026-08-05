@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://bndxykpo7qtjh"
+path="res://.godot/imported/pcm16.glsl-86e222565bd80e9016ab620fc6f5d02e.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/pcm16.glsl"
+dest_files=["res://.godot/imported/pcm16.glsl-86e222565bd80e9016ab620fc6f5d02e.res"]
+
+[params]
+

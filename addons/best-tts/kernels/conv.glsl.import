@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://chscmn6ff5tuc"
+path="res://.godot/imported/conv.glsl-c9f84cf40084e3229d43389968d17841.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/conv.glsl"
+dest_files=["res://.godot/imported/conv.glsl-c9f84cf40084e3229d43389968d17841.res"]
+
+[params]
+

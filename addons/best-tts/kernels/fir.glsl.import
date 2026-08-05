@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://c43wf0cfroqt"
+path="res://.godot/imported/fir.glsl-125d6f2f7943d51d877c3dad266cb550.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/fir.glsl"
+dest_files=["res://.godot/imported/fir.glsl-125d6f2f7943d51d877c3dad266cb550.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://q7bj7dlr7iej"
+path="res://.godot/imported/reduce.glsl-99a466c691962adcf4db19a062d8e70d.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/reduce.glsl"
+dest_files=["res://.godot/imported/reduce.glsl-99a466c691962adcf4db19a062d8e70d.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://gcvo0y7ilwfl"
+path="res://.godot/imported/softmax.glsl-96ded4716059ce95ddd34d8a1c87fdad.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/softmax.glsl"
+dest_files=["res://.godot/imported/softmax.glsl-96ded4716059ce95ddd34d8a1c87fdad.res"]
+
+[params]
+

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>best-tts — Kokoro-82M speech in pure GDScript</title>
+<meta name="description" content="Neural text-to-speech running entirely inside Godot, in pure GDScript and GLSL. Listen to the voices.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --line: #d1d9e0;
+    --card: #f6f8fa; --accent: #1f8f7f; --accent-soft: #4fd1c5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --line: #2f3742;
+      --card: #151b23; --accent: #4fd1c5; --accent-soft: #4fd1c5;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 20px 80px; }
+  header { text-align: center; margin-bottom: 8px; }
+  h1 { font-size: 44px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .tag { color: var(--muted); font-size: 18px; margin: 0 0 4px; }
+  .pure { color: var(--accent); font-weight: 600; }
+  .badges { margin: 22px 0 40px; text-align: center; }
+  .badges a {
+    display: inline-block; margin: 3px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--muted);
+    text-decoration: none; font-size: 13px;
+  }
+  .badges a:hover { border-color: var(--accent); color: var(--accent); }
+  h2 { font-size: 22px; margin: 44px 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .line {
+    border-left: 3px solid var(--accent-soft); padding: 10px 16px; margin: 0 0 26px;
+    background: var(--card); border-radius: 0 8px 8px 0; font-style: italic;
+  }
+  .samples { display: grid; gap: 12px; }
+  .sample {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; background: var(--card);
+  }
+  .sample .top {
+    display: flex; align-items: baseline; gap: 10px;
+    flex-wrap: wrap; margin-bottom: 10px;
+  }
+  .sample .name {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 15px; font-weight: 600; color: var(--accent);
+  }
+  .sample .who { color: var(--muted); font-size: 14px; }
+  audio { width: 100%; height: 38px; display: block; }
+  .note { color: var(--muted); font-size: 14px; margin-top: 12px; }
+  pre {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px; overflow-x: auto; margin: 0 0 8px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px; line-height: 1.5;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 0; font-size: 15px; }
+  td { padding: 8px 10px; border-top: 1px solid var(--line); vertical-align: top; }
+  td:first-child { color: var(--muted); white-space: nowrap; width: 42%; }
+  a { color: var(--accent); }
+  .cta {
+    margin: 48px 0 0; padding: 22px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--card); text-align: center;
+  }
+  .cta h3 { margin: 0 0 8px; font-size: 19px; }
+  .cta p { color: var(--muted); margin: 0 0 14px; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 8px;
+    background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 600;
+  }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 14px; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>best-tts</h1>
+    <p class="tag">High-quality neural text-to-speech, running entirely inside Godot.</p>
+    <p class="tag"><span class="pure">Pure GDScript and GLSL.</span>
+       No C++, no GDExtension, no executables, no server.</p>
+  </header>
+
+  <div class="badges">
+    <a href="https://github.com/studio-ransom/best-tts-godot">GitHub</a>
+    <a href="https://github.com/studio-ransom/best-tts-godot/blob/main/LICENSE">Apache-2.0</a>
+    <a href="https://godotengine.org">Godot 4.4+</a>
+    <a href="https://store.steampowered.com/app/4027400/Anthracite/">Anthracite on Steam</a>
+  </div>
+
+  <h2>Hear it</h2>
+  <p class="sub">
+    Every clip came out of Godot on an RTX 4070 Ti. Same line, different voice
+    pack. Nothing was touched afterwards — no EQ, no compression, no editing.
+  </p>
+
+  <p class="line">“Hello from Godot. This is Kokoro speaking.”</p>
+
+  <div class="samples">
+    <div class="sample">
+      <div class="top">
+        <span class="name">am_adam</span>
+        <span class="who">American English, male</span>
+      </div>
+      <audio controls preload="none" src="samples/am_adam.mp3"></audio>
+    </div>
+    <div class="sample">
+      <div class="top">
+        <span class="name">af_alloy</span>
+        <span class="who">American English, female</span>
+      </div>
+      <audio controls preload="none" src="samples/af_alloy.mp3"></audio>
+    </div>
+    <div class="sample">
+      <div class="top">
+        <span class="name">am_onyx</span>
+        <span class="who">American English, male</span>
+      </div>
+      <audio controls preload="none" src="samples/am_onyx.mp3"></audio>
+    </div>
+    <div class="sample">
+      <div class="top">
+        <span class="name">am_fenrir</span>
+        <span class="who">American English, male</span>
+      </div>
+      <audio controls preload="none" src="samples/am_fenrir.mp3"></audio>
+    </div>
+    <div class="sample">
+      <div class="top">
+        <span class="name">em_alex</span>
+        <span class="who">Spanish pack reading English, for the accent</span>
+      </div>
+      <audio controls preload="none" src="samples/em_alex.mp3"></audio>
+    </div>
+  </div>
+
+  <p class="note">Five of fifty. The rest ship with the addon.</p>
+
+  <h2>Use it</h2>
+  <p class="sub">
+    Drop in a <code>BestVoicePlayer</code> — an AudioStreamPlayer with
+    <code>text</code> and <code>voice</code> in the inspector — and call it.
+    No engine node, no autoload, no plugin to enable.
+  </p>
+
+<pre>$Voice.speak("I have wares, if you have coin.")</pre>
+
+  <h2>What it costs</h2>
+  <table>
+    <tr><td>Synthesis speed</td><td>~9× realtime (3.3 s line in ~600 ms, RTX 4070 Ti)</td></tr>
+    <tr><td>Main thread, per line</td><td>0.06 ms to queue a full page of text</td></tr>
+    <tr><td>Cache hit</td><td>0.16 ms, same frame</td></tr>
+    <tr><td>VRAM at rest</td><td>~190 MB</td></tr>
+    <tr><td>On disk</td><td>113 MB — model, 50 voices, English lexicons</td></tr>
+    <tr><td>Per-word cost</td><td>nothing, forever, offline</td></tr>
+  </table>
+
+  <h2>Why it matters that it is pure GDScript</h2>
+  <p class="sub">
+    Every other route to neural speech in Godot drags something with it: a
+    GDExtension you compile per platform, an onnxruntime DLL, a bundled Python,
+    or a cloud endpoint that meters you by the character and can go down. This
+    is a data file and a pile of <code>.gd</code> and <code>.glsl</code> that
+    Godot already knows how to load. It exports like any other project, and
+    your players install nothing.
+  </p>
+  <p class="sub">
+    The honest tradeoff: it needs a Vulkan-capable GPU and the Forward+ or
+    Mobile renderer, because the compute shaders have to run somewhere.
+  </p>
+
+  <div class="cta">
+    <h3>⛏️ Support this project</h3>
+    <p>
+      best-tts is free and Apache-licensed. It was built for Anthracite, our
+      co-op survival horror game. A wishlist is the most useful thing you can
+      give back, and it costs nothing.
+    </p>
+    <a class="btn" href="https://store.steampowered.com/app/4027400/Anthracite/">Wishlist Anthracite on Steam</a>
+  </div>
+
+  <footer>
+    Model: <a href="https://huggingface.co/hexgrad/Kokoro-82M">Kokoro-82M</a>
+    by hexgrad, Apache-2.0 ·
+    Runtime © 2026 Studio Ransom, Apache-2.0 ·
+    <a href="https://github.com/studio-ransom/best-tts-godot">Source</a>
+  </footer>
+
+</div>
+</body>
+</html>

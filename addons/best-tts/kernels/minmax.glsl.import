@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://catsmpk2wnjhb"
+path="res://.godot/imported/minmax.glsl-1d128eca2805ed464e6014c6ded36ae6.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/minmax.glsl"
+dest_files=["res://.godot/imported/minmax.glsl-1d128eca2805ed464e6014c6ded36ae6.res"]
+
+[params]
+

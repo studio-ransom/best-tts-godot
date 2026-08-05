@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dyh5oehdyypoe"
+path="res://.godot/imported/layernorm.glsl-a173b0c2970d9b3b930109120e207de7.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/layernorm.glsl"
+dest_files=["res://.godot/imported/layernorm.glsl-a173b0c2970d9b3b930109120e207de7.res"]
+
+[params]
+

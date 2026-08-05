@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://c4pleinsm15mu"
+path="res://.godot/imported/copy.glsl-9dddf3e26f104cf833ce00058fbe38e4.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/copy.glsl"
+dest_files=["res://.godot/imported/copy.glsl-9dddf3e26f104cf833ce00058fbe38e4.res"]
+
+[params]
+

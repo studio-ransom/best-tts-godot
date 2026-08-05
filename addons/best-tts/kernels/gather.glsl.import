@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://csxuv1nlsgrvh"
+path="res://.godot/imported/gather.glsl-b329b0c3d20c654b3127bd200e9bab7e.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/gather.glsl"
+dest_files=["res://.godot/imported/gather.glsl-b329b0c3d20c654b3127bd200e9bab7e.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://bl582uksh8q1l"
+path="res://.godot/imported/elementwise.glsl-072e9a0c0b71b4ec5bddbccaadbdcc51.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/elementwise.glsl"
+dest_files=["res://.godot/imported/elementwise.glsl-072e9a0c0b71b4ec5bddbccaadbdcc51.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://bkrjoqwe14wq5"
+path="res://.godot/imported/matmul.glsl-01864a1079e26c7c643c276fc79a5045.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/matmul.glsl"
+dest_files=["res://.godot/imported/matmul.glsl-01864a1079e26c7c643c276fc79a5045.res"]
+
+[params]
+

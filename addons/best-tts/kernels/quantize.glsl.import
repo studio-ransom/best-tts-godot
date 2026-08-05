@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cyqa7vy0lcqld"
+path="res://.godot/imported/quantize.glsl-868bd94659e78b3dd150e7b17b465823.res"
+
+[deps]
+
+source_file="res://addons/best-tts/kernels/quantize.glsl"
+dest_files=["res://.godot/imported/quantize.glsl-868bd94659e78b3dd150e7b17b465823.res"]
+
+[params]
+

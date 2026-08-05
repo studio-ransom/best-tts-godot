@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bttsdemo00001"]
+
+[ext_resource type="Script" path="res://demo/demo.gd" id="1_demo"]
+[ext_resource type="Script" path="res://addons/best-tts/nodes/best_voice_player.gd" id="2_player"]
+[ext_resource type="Script" path="res://addons/best-tts/nodes/best_voice_stream.gd" id="3_stream"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_merchant"]
+script = ExtResource("3_stream")
+text = "I have wares, if you have coin."
+speed = 1.0
+voice = "bm_george"
+
+[node name="Demo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_demo")
+
+[node name="Narrator" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_player")
+text = "The road was quiet, which was the first thing that felt wrong."
+speed = 1.0
+prepare_on_ready = true
+play_on_ready = false
+stream_long_lines = true
+voice = "bm_lewis"
+
+[node name="Merchant" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_merchant")
+script = ExtResource("2_player")
+text = ""
+speed = 1.0
+prepare_on_ready = true
+play_on_ready = false
+stream_long_lines = true
+voice = "bm_george"
+
+[node name="FreeForm" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_player")
+text = ""
+speed = 1.0
+prepare_on_ready = false
+play_on_ready = false
+stream_long_lines = true
+voice = "af_heart"
