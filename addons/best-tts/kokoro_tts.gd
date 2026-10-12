@@ -659,7 +659,7 @@ func _submit(text: String, ipa: String, voice: String, speed: float,
 			req.from_cache = true
 			req.timings = hit["timings"]
 			# Deferred, so a caller of say() can still connect to `finished`.
-			_resolve.call_deferred(req, hit["clip"], "")
+			_deliver_cached.call_deferred(req, hit["clip"])
 			return req
 
 	_outstanding.append(req)
@@ -862,7 +862,7 @@ func _run_request(req: Request) -> void:
 		if not hit.is_empty():
 			req.from_cache = true
 			req.timings = hit["timings"]
-			_deliver.call_deferred(req, hit["clip"], "")
+			_deliver_cached.call_deferred(req, hit["clip"])
 			return
 
 	var words := []
@@ -1032,6 +1032,12 @@ func _finish_load(err: String) -> void:
 
 func _deliver(req: Request, stream: AudioStreamWAV, err: String) -> void:
 	_resolve(req, stream, err)
+
+
+func _deliver_cached(req: Request, clip: AudioStreamWAV) -> void:
+	if not req.is_done() and not req.is_cancelled():
+		req.chunk_ready.emit(clip, 0, 1)
+	_resolve(req, clip, "")
 
 
 func _emit_chunk(req: Request, clip: AudioStreamWAV, index: int,
